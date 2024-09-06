@@ -1,10 +1,14 @@
 package ers.com.es.eoi.tinnyshop.entity;
+
 import javax.persistence.*;
+import java.util.Optional;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.Date;
 import java.util.List;
 
 @Getter
@@ -13,22 +17,20 @@ import java.util.List;
 @NoArgsConstructor
 @Entity
 @Table(name = "orders")
-public class Order {
+public class Orders {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @Column(nullable = false)
-    private String orderName;
-
-    @Column(nullable = false)
-    private String orderDate;
-
     @ManyToOne
-    @JoinColumn(name = "user_id", nullable = false)
+    @JoinColumn(name = "username", nullable = false)
     private User user;
 
-    @OneToMany(mappedBy = "order")
-    private List<OrderArticle> orderArticles;
+    @Column(nullable = false)
+    private Date orderDate;
+    
+    @OneToMany(mappedBy = "orders")
+    private List<OrderArticle> orderArticle;
+    
 }

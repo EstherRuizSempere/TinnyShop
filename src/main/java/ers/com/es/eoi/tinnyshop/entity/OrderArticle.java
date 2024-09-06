@@ -15,21 +15,21 @@ import lombok.Setter;
 @Table(name = "order_article")
 public class OrderArticle {
 
-	@Id
-	private int id;
-	
-    @ManyToOne
-    @MapsId("orderId")
-    @JoinColumn(name = "order_id")
-	private Order order;
-	
+	 @Id
+	    @GeneratedValue(strategy = GenerationType.IDENTITY)
+	    private int id;
 
-	@ManyToOne
-	@MapsId("articleId")
-	@JoinColumn(name = "article_id")
-	private Article article;
-	
-	@Column
-	private int quantity;
-	
+
+	    @ManyToOne
+	    @JoinColumn(name = "article_id", nullable = false)
+	    private Article article;
+	    
+	    @ManyToOne
+	    @JoinColumn(name = "order_id", nullable = false)
+	    private Orders orders;
+
+	    @Column(nullable = false)
+	    private int quantity;
+	    
+
 }

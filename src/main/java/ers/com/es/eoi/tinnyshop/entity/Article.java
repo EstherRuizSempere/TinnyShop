@@ -28,6 +28,5 @@ public class Article {
 	@Column
 	private int stock;
 	
-	@OneToMany(mappedBy = "article")
-	private List<OrderArticle> OrderArticle;
+	
 }

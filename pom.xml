@@ -70,11 +70,7 @@
 			<artifactId>h2</artifactId>
 		</dependency>
 
-		<dependency>
-			<groupId>com.es.eoi</groupId>
-			<artifactId>MakeupApp</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
-		</dependency>
+
 	</dependencies>
 
 	<build>
